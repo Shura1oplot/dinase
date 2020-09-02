@@ -11,7 +11,7 @@ DATABASE = {
     "PASSWORD": ""
 }
 
-LINK_MASK = "http://dinase.dyndns.org/cgi-bin/dinase/dinase.py?r={rubric}"
+LINK_MASK = "http://dinase.ru/cgi-bin/dinase/dinase.py?r={rubric}"
 
 JSON_DIR = os.path.dirname(__file__)
 

@@ -1,0 +1,62 @@
+{
+    "is_new": {
+        "rules": [
+            {
+                "key":      "age",
+                "operator": "le",
+                "operand":  30
+            }
+        ]
+    },
+    "is_old": {
+        // "relation": "or",
+        "rules": [
+            {
+                "key":      "age",
+                "operator": "gt",
+                "operand":  30
+            },
+            {
+                "key":      "added_ago",
+                "operator": "gt",
+                "operand":  30
+            }
+        ]
+    },
+    "rzd": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":         ["title", "summary"],
+                "operator":    "contains",
+                "operand":     "РЖД",
+                "ignore_case": false
+            }
+        ]
+    },
+    "tmkh_locotech": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":         ["title", "summary"],
+                "operator":    "contains",
+                "operand":     "ЛокоТех",
+            },
+            {
+                "key":         ["title", "summary"],
+                "operator":    "contains",
+                "operand":     "Трансмашхолдинг",
+            }
+        ]
+    },
+    "railway": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":         ["title", "summary"],
+                "operator":    "pattern_match",
+                "operand":     "железн* дорог*",
+            }
+        ]
+    }
+}

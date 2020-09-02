@@ -283,7 +283,7 @@ class PatternSyntaxError(RuleError):
 class RulePattern(RuleBase):
 
     _operators = {
-        "pattern": lambda value, operand: operand.search(value) is not None,
+        "pattern_match": lambda value, operand: operand.search(value) is not None,
     }
 
     _operand_types = (string_types, )

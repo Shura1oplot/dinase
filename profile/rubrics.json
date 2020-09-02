@@ -1,0 +1,14 @@
+{
+    "railway": {
+        "rule": "is_new and (railway or rzd or tmkh_locotech)",
+        "template": {
+            "title": "СМИ о железных дорогах"
+        }
+    }
+    "rzd": {
+        "rule": "is_new and rzd",
+        "template": {
+            "title": "СМИ об РЖД"
+        }
+    }
+}

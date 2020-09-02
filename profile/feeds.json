@@ -1,0 +1,20 @@
+{
+    "kommersant.main": {
+        "url": "https://www.kommersant.ru/RSS/main.xml",
+        "usertags": ["kommersant"]
+    },
+    "kommersant.news": {
+        "url": "https://www.kommersant.ru/RSS/news.xml",
+        "usertags": ["kommersant"]
+    },
+
+    "rbc": {
+        "url": "http://static.feed.rbc.ru/rbc/logical/footer/news.rss",
+    },
+
+    "forbes_russia": {
+        "url": "https://www.forbes.ru/newrss.xml",
+    },
+
+    // TODO: The Bell?
+}
