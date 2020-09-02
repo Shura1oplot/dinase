@@ -1,0 +1,278 @@
+{
+    "copyright.ru_main": {
+        "url": "http://copyright.ru/ru/news/main/rss.xml",
+        "usertags": ["copyright", "copyright.ru"]
+    },
+    "copyright.ru_business": {
+        "url": "http://copyright.ru/ru/news/business/rss.xml",
+        "usertags": ["copyright", "copyright.ru"]
+    },
+    "copyright.ru_opinion": {
+        "url": "http://copyright.ru/ru/news/opinion/rss.xml",
+        "usertags": ["copyright", "copyright.ru"]
+    },
+    // "appp.ru": {
+    //     "url": "http://dinase.dyndns.org/cgi-bin/dinase/appp.ru.py",
+    //     "usertags": ["copyright"],
+    // },
+    "bsa.org": {
+        "url": "http://dinase.dyndns.org/cgi-bin/dinase/bsa.org.py",
+        "usertags": ["copyright"]
+    },
+    "apkit.ru": {
+        "url": "http://www.apkit.ru/news/index.php?rss=y",
+        "replace": {
+            "title": "apkit.ru"
+        }
+    },
+
+
+    // "raec.ru": {
+    //     "url": "http://dinase.dyndns.org/cgi-bin/dinase/raec.ru.py",
+    //     "usertags": ["copyright"],
+    //     "disable": true
+    // },
+
+
+    // "pirate-party.ru": {
+    //     "url": "http://pirate-party.ru/rss.xml",
+    //     "usertags": ["copyright"]
+    // },
+    // "freerunet.ru": {
+    //     "url": "http://freerunet.ru/feed/",
+    //     "usertags": ["copyright"],
+    // },
+    // "rublacklist.net": {
+    //     "url": "http://rublacklist.net/feed",
+    //     "usertags": ["copyright"],
+    // },
+    // "piratemedia.ru": {
+    //     "url": "http://piratemedia.ru/rss.feed",
+    //     "usertags": ["copyright"],
+    //     "replace": {
+    //         "title": "piratemedia.ru"
+    //     },
+    // },
+    // "hro.org": {
+    //     "url": "http://hro.org/rss.xml"
+    // },
+    // "therunet.com": {
+    //     "url": "http://www.therunet.com/feed.rss"
+    // },
+
+
+    "kremlin.ru": {
+        "url": "http://www.kremlin.ru/feeds/news",
+        "usertags": ["gov"]
+    },
+    "pnp.ru": {
+        "url": "http://www.pnp.ru/rss/",
+        "usertags": ["gov"]
+    },
+    "d-russia.ru": {
+        "url": "http://d-russia.ru/feed/atom",
+        "usertags": ["gov"]
+    },
+    "cctld.ru": {
+        "url": "http://cctld.ru/ru/rss/",
+        "usertags": ["gov"]
+    },
+    "minsvyaz.ru": {
+        "url": "http://minsvyaz.ru/ru/rss/feed/index.php?block_4[]=49",
+        "usertags": ["gov"]
+    },
+    "rkn.gov.ru": {
+        "url": "http://dinase.dyndns.org/cgi-bin/dinase/rkn.gov.ru.py",
+        "usertags": ["gov"]
+    },
+    "oprf.ru": {
+        "url": "http://www.oprf.ru/rss.php",
+        "usertags": ["gov"]
+    },
+
+
+    // "cnews.ru": {
+    //     "url": "http://www.cnews.ru/news.xml",
+    //     "usertags": ["it"]
+    // },
+    // "habrahabr.ru": {
+    //     "url": "http://dinase.dyndns.org/cgi-bin/dinase/habrahabr.ru.py",
+    //     "usertags": ["it"]
+    // },
+    // "pcweek.ru": {
+    //     "url": "http://www.pcweek.ru/rss/index.php",
+    //     "usertags": ["it"]
+    // },
+    // "computerra.ru": {
+    //     "url": "http://feeds.feedburner.com/ct_news?format=xml",
+    //     "usertags": ["it"]
+    // },
+    // "compulenta.ru": {
+    //     "url": "http://feeds.feedburner.com/cl_news?format=xml",
+    //     "usertags": ["it"]
+    // },
+    // "digit.ru": {
+    //     "url": "http://digit.ru/export/rss2/index.xml",
+    //     "usertags": ["it"]
+    // },
+    // "equipnet.ru": {
+    //     "url": "http://www.equipnet.ru/grabbers/rss_news.xml",
+    //     "usertags": ["it"]
+    // },
+    // "securitylab.ru": {
+    //     "url": "http://www.securitylab.ru/_Services/Export/RSS/news/",
+    //     "usertags": ["it"]
+    // },
+    // "cybersecurity.ru": {
+    //     "url": "http://www.cybersecurity.ru/rss/news.xml",
+    //     "usertags": ["it"]
+    // },
+    // "itsec.ru": {
+    //     "url": "http://new.groteck.ru/rss/r/?site_id=2&from=0&limit=30&format=1&search=&rubr=32",
+    //     "usertags": ["it"]
+    // },
+    // "comnews.ru": {
+    //     "url": "http://www.comnews.ru/rss",
+    //     "usertags": ["it"],
+    //     "disable": true
+    // },
+    // "telekomza.ru": {
+    //     "url": "http://telekomza.ru/category/news/feed/",
+    //     "usertags": ["it"]
+    // },
+
+
+    "itar-tass.com": {
+        "url": "http://www.itar-tass.com/rss/all.xml",
+        "usertags": ["SMI"]
+    },
+    "rg.ru": {
+        "url": "http://www.rg.ru/xml/index.xml",
+        "usertags": ["SMI"]
+    },
+    "vedomosti.ru": {
+        "url": "http://www.vedomosti.ru/newsline/out/rss.xml",
+        "usertags": ["SMI"]
+    },
+    "izvestia.ru": {
+        "url": "http://izvestia.ru/xml/rss/all.xml",
+        "usertags": ["SMI"]
+    },
+    "lenta.ru": {
+        "url": "http://lenta.ru/rss/",
+        "usertags": ["SMI"]
+    },
+    "gazeta.ru_first": {
+        "url": "http://www.gazeta.ru/export/rss/first.xml",
+        "usertags": ["SMI"]
+    },
+    "gazeta.ru_lenta": {
+        "url": "http://www.gazeta.ru/export/rss/lenta.xml",
+        "usertags": ["SMI"]
+    },
+    "ria.ru": {
+        "url": "http://ria.ru/export/rss2/index.xml",
+        "usertags": ["SMI"]
+    },
+    "rbc.ru": {
+        "url": "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss",
+        "usertags": ["SMI"]
+    },
+    // "rbcdialy.ru": {
+    //     "url": "http://static.feed.rbc.ru/rbc/logical/rbcdaily.ru/daily.rss",
+    //     "usertags": ["SMI"]
+    // },
+    "interfax.ru": {
+        "url": "http://interfax.ru/rss.asp",
+        "usertags": ["SMI"]
+    },
+
+
+    // "tpp-inform.ru": {
+    //     "url": "http://www.tpp-inform.ru/feed/rss-news/index.php"
+    // },
+    // "mskit.ru": {
+    //     "url": "http://www.mskit.ru/rss"
+    // },
+    // "osp.ru": {
+    //     "url": "http://www.osp.ru/rss/news.rss"
+    // },
+    // "kurs.ru": {
+    //     "url": "http://kurs.ru/all.rss"
+    // },
+    // "mn.ru": {
+    //     "url": "http://mn.ru/export/rss2/index.xml"
+    // },
+    // "marker.ru": {
+    //     "url": "http://marker.ru/xml/rss.xml"
+    // },
+
+
+    // "unova.ru": {
+    //     "url": "http://feeds2.feedburner.com/Unova_all"
+    // },
+    // "psj.ru_national": {
+    //     "url": "http://psj.ru/bitrix/rss.php?LANG=ru&TYPE=save_w&LIMIT=30&ID=saver_national"
+    // },
+    // "psj.ru_magazins": {
+    //     "url": "http://psj.ru/bitrix/rss.php?LANG=ru&TYPE=saver&LIMIT=30&ID=saver_magazins"
+    // },
+    // "psj.ru_people": {
+    //     "url": "http://psj.ru/bitrix/rss.php?LANG=ru&TYPE=save_h&LIMIT=30&ID=saver_people"
+    // },
+    // "snob.ru": {
+    //     "url": "http://www.snob.ru/rss/all"
+    // },
+    "1-ur.ru": {
+        "url": "http://www.1-ur.ru/index.php?option=com_rd_rss&id=2"
+    },
+    // "roem.ru_news": {
+    //     "url": "http://roem.ru/rss/group/news/"
+    // },
+    // "roem.ru_insides": {
+    //     "url": "http://roem.ru/rss/group/insides/"
+    // },
+    // "roem.ru_articles": {
+    //     "url": "http://roem.ru/rss/group/articles/"
+    // },
+    "sledcomrf.ru_popular": {
+        "url": "http://sledcomrf.ru/rss/popular/"
+    },
+    "sledcomrf.ru_0": {
+        "url": "http://sledcomrf.ru/rss/0"
+    },
+    "sledcomrf.ru_1": {
+        "url": "http://sledcomrf.ru/rss/1"
+    },
+    "sledcomrf.ru_40": {
+        "url": "http://sledcomrf.ru/rss/40"
+    },
+    "petrovka38.ru": {
+        "url": "http://petrovka38.ru/news/rss/"
+    },
+    "rapsinews.ru": {
+        "url": "http://www.rapsinews.ru/export/rss2/news/index.xml"
+    }
+    // ,
+    // "ms4press.ru": {
+    //     "url": "http://ms4press.ru/syndication.axd"
+    // },
+    // "slon.ru": {
+    //     "url": "http://slon.ru/rss/xml/russia.xml"
+    // },
+    // "e-xecutive.ru": {
+    //     "url": "http://www.e-xecutive.ru/bitrix/rss.php?ID=228&LANG=ex&TYPE=news&LIMIT=20"
+    // },
+    // "ict-online.ru": {
+    //     "url": "http://ict-online.ru/rss/"
+    // },
+    // "grani.ru": {
+    //     "url": "http://grani.ru/Internet.rss"
+    // },
+    // "pravo.ru": {
+    //     "url": "http://pravo.ru/rss/"
+    // },
+    // "zakon.ru": {
+    //     "url": "http://zakon.ru/RSS/Discussions"
+    // }
+}

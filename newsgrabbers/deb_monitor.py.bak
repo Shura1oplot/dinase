@@ -1,0 +1,201 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+import sys
+import logging
+import re
+from urlparse import urljoin
+from xml.sax.saxutils import escape
+from debian.changelog import Changelog, Version
+from grab.spider import Spider, Task
+from dinase import datelib
+from dinase.feedlib import fix_head, fix_entries, get_atom
+
+
+PACKAGES = (
+    "mc",
+
+    "laptop-mode-tools",
+
+    "jq",
+
+    ("pylint", "main"),
+    ("logilab-astng", "main"),
+    ("logilab-common", "main"),
+
+    "python-flake8",
+    ("pyflakes", "main"),
+    ("pep8", "main"),
+    "python-mccabe",
+
+    ("feedparser", "main"),
+    ("pyinotify", "main"),
+)
+
+
+class ChangelogsSpider(Spider):
+
+    def __init__(self, *args, **kwargs):
+        super(ChangelogsSpider, self).__init__(*args, **kwargs)
+
+        self.changelogs = []
+
+    def task_generator(self):
+        for package in PACKAGES:
+            if isinstance(package, tuple):
+                package, section = package
+
+            else:
+                section = None
+
+            for task in self.get_debian_tasks(package, section):
+                yield task
+
+            for task in self.get_ubuntu_tasks(package, section):
+                yield task
+
+    @staticmethod
+    def get_debian_tasks(package, section=None):
+        section = section or "main"
+        url = "http://ftp-master.metadata.debian.org/changelogs/{}/{}/{}/".format(
+            section, package[0], package)
+
+        for dist in ("experimental", "unstable"):
+            yield Task(
+                "changelog",
+                url=urljoin(url, dist + "_changelog"),
+                dist="debian",
+            )
+
+    @staticmethod
+    def get_ubuntu_tasks(package, section=None):
+        section = section or "universe"
+
+        yield Task(
+            "ubuntu_pool",
+            url="http://changelogs.ubuntu.com/changelogs/pool/{}/{}/{}/?C=M;O=A".format(
+                section, package[0], package),
+            dist="ubuntu",
+        )
+
+    def task_ubuntu_pool(self, grab, task):  # pylint: disable=W0613,R0201
+        yield Task(
+            "changelog",
+            url=urljoin(
+                urljoin(
+                    grab.response.url,
+                    grab.doc.select("/html/body/table/tr[last()-1]/td[2]/a").attr("href")
+                ),
+                "changelog"
+            ),
+            dist=task.dist
+        )
+
+    def task_changelog(self, grab, task):  # pylint: disable=W0613
+        if grab.response.code >= 400:
+            return
+
+        self.changelogs.append((
+            task.dist,
+            grab.response.url,
+            grab.response.body
+        ))
+
+
+def version_strip_epoch(version):
+    ver = str(version)
+    colon_pos = ver.find(":")
+
+    if colon_pos > -1:
+        ver = ver[colon_pos+1:]
+
+    return Version(ver)
+
+
+def get_packages(changelogs):
+    packages = []
+
+    for dist, url, body in changelogs:
+        changelog = Changelog(body)
+
+        newest_block = next(iter(changelog))
+        r = re.match(r"^\s*(?P<name>.+)\s+<(?P<email>.+)>\s*$", newest_block.author)
+        author = {
+            "name": r.group("name"),
+            "email": r.group("email"),
+        }
+
+        changes = [escape(line[2:]) for line in newest_block.changes() if line]
+        changes = "<br/>".join(changes)
+        changes = changes.replace(" ", "&nbsp;")
+        changes = "<font face=\"monospace\">" + changes + "</font>"
+
+        packages.append({
+            "dist": dist,
+            "codename": newest_block.distributions,
+            "url": url,
+            "name": changelog.package,
+            "version": version_strip_epoch(changelog.version),
+            "author": author,
+            "changes": changes,
+            "datetime": datelib.rfc2822.parse(newest_block.date)
+        })
+
+    return packages
+
+
+def main():
+    logging.basicConfig()
+    spider = ChangelogsSpider(thread_number=4)
+    spider.run()
+
+    head = {
+        "title": {
+            "type": "text/plain",
+            "value": "Packages monitor"
+        },
+        "links": [
+            {
+                "rel": "alternate",
+                "type": "text/html",
+                "href": "http://shura1oplot.dyndns.org/cgi-bin/webparsers/deb_monitor.py",
+            },
+        ],
+    }
+
+    entries = [{
+        "title": {
+            "value": "{} {} ({} {})".format(
+                package["name"],
+                package["version"],
+                package["dist"],
+                package["codename"]
+            ),
+            "type": "text/plain",
+        },
+        "links": [
+            {
+                "rel": "alternate",
+                "type": "text/html",
+                "href": package["url"],
+            },
+        ],
+        "author": package["author"],
+        "summary": {
+            "value": package["changes"],
+            "type": "text/html",
+        },
+        "published": package["datetime"],
+    } for package in get_packages(spider.changelogs)]
+
+    head = fix_head(head)
+    entries = fix_entries(entries, head)
+
+    sys.stdout.write("Content-type:application/atom+xml;charset=utf-8\n\n")
+    sys.stdout.write(get_atom(head, entries))
+    sys.stdout.flush()
+
+
+if __name__ == "__main__":
+    sys.exit(main())

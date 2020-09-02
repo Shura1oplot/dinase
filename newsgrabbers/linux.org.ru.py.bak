@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+import sys
+from dinase.feedlib import parse, content, get_atom
+
+
+def process_entry(entry):
+    entry["links"][0]["href"] = entry["id"]
+    entry["summary"]["value"] = content.html.clean(entry["summary"]["value"])
+
+    return entry
+
+
+def main():
+    head, entries = parse("http://feeds.feedburner.com/org/LOR?format=xml")
+    entries = map(process_entry, entries)
+    head["author"] = {"name": "linux.org.ru"}
+    sys.stdout.write("Content-type:application/atom+xml;charset=utf-8\n\n")
+    sys.stdout.write(get_atom(head, entries))
+    sys.stdout.flush()
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+import sys
+import cgi
+from dinase.feedlib import parse, get_atom
+
+
+def process_entry(entry):
+    if "tags" not in entry or "summary" not in entry:
+        return entry
+
+    summary = ", ".join([cgi.escape(x["term"]) for x in entry["tags"]])
+    summary += "<br /><br />" + entry["summary"]["value"]
+    entry["summary"]["value"] = summary
+
+    return entry
+
+
+def main():
+    head, entries = parse("http://habrahabr.ru/rss/hubs/")
+    entries = map(process_entry, entries)
+    sys.stdout.write("Content-type:application/atom+xml;charset=utf-8\n\n")
+    sys.stdout.write(get_atom(head, entries))
+    sys.stdout.flush()
+
+
+if __name__ == "__main__":
+    sys.exit(main())

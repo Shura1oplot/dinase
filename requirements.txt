@@ -1,0 +1,6 @@
+dateutil
+lxml
+pymongo
+feedparser
+grab
+trafaret

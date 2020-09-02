@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+import sys
+from dinase.feedlib.htmlparser import HTMLParserBase
+from dinase.datelib.relative import parse as parse_relative_date
+
+
+class RKNParser(HTMLParserBase):
+
+    title = "Новости Роскомнадзора"
+    subtitle = "Новости Роскомнадзора"
+    link = "http://rkn.gov.ru/news/rsoc/"
+
+    entries_xpath = "//div[@id='content']//div[@class='date_content']/.."
+
+    def extract_entries(self, item):
+        a = item.select("div[@class='text_content']/a")
+        yield {
+            "title": a.attr("title"),
+            "link": a.attr("href"),
+            "summary": a.text(),
+            "published": parse_relative_date(item.select("div[@class='date_content']").text())
+        }
+
+
+def main():
+    parser = RKNParser()
+    parser.run()
+
+
+if __name__ == "__main__":
+    sys.exit(main())

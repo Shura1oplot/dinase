@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+import sys
+from dinase.feedlib.htmlparser import HTMLParserBase
+
+
+class BSAParser(HTMLParserBase):
+
+    title = "Business Software Alliance"
+    subtitle = "Новости о пиратстве"
+    link = "http://ww2.bsa.org/country/News%20and%20Events/Piracy%20News.aspx?sc_lang=ru-RU"
+
+    entries_xpath = "/html/body/div[@id='container']/div[@id='content']/div[@id='mid_col']/form/p"
+    datetime_mask = "%m.%d.%Y"
+
+    def extract_entries(self, item):
+        link = item.select("strong/a").attr("href")
+        yield {
+            "title": item.select("strong/a").text(),
+            "link": "{}?sc_lang=ru-RU".format(link.replace(" ", "%20")),
+            "summary": item.select("text()[2]").text(),
+            "published": item.select("text()[1]").text()
+        }
+
+
+def main():
+    parser = BSAParser()
+    parser.run()
+
+
+if __name__ == "__main__":
+    sys.exit(main())

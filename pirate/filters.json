@@ -1,0 +1,575 @@
+{
+    "test": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "пират*"
+            }
+        ]
+    },
+
+    "new": {
+        "rules": [
+            {
+                "key":      "age",
+                "operator": "le",
+                "operand":  30
+            }
+        ]
+    },
+
+    "old": {
+        "rules": [
+            {
+                "key":      "age",
+                "operator": "gt",
+                "operand":  30
+            },
+            {
+                "key":      "added_ago",
+                "operator": "gt",
+                "operand":  30
+            }
+        ]
+    },
+
+    "feeds_habrahabr.ru": {
+        "rules": [
+            {
+                "key":      "feed",
+                "operator": "equal",
+                "operand":  "habrahabr.ru"
+            }
+        ]
+    },
+
+
+    "feeds_copyright": {
+        "rules": [
+            {
+                "key":      "usertags",
+                "operator": "include",
+                "operand":  "copyright"
+            }
+        ]
+    },
+
+    "copyright": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":         "summary",
+                "operator":    "contains",
+                "operand":     "RIAA",
+                "ignore_case": false
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "contains",
+                "operand":  "146 УК РФ"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "лицензион*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "правообладат*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "авторск* прав*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "прав автор*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "копирайт"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "copyright"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "интеллектуальн*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "нелегальн* копи*"
+            },
+            {
+                "key":         ["title", "summary"],
+                "operator":    "pattern",
+                "operand":     "BSA",
+                "ignore_case": false
+            },
+            {
+                "key":         ["title", "summary"],
+                "operator":    "pattern",
+                "operand":     "НП ППП",
+                "ignore_case": false
+            },
+            {
+                "key":         ["title", "summary"],
+                "operator":    "pattern",
+                "operand":     "НПППП",
+                "ignore_case": false
+            }
+        ]
+    },
+    "pirate": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "пират*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "антипират*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "pirat*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "antipirat*"
+            }
+        ]
+    },
+    "not_pc_pirate": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "сомали*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "берег*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "морск*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "моряк*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "карибск*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "танкер*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "заложник*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "гринпис"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "greenpeace"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "Arctic Sunrise"
+            }
+        ]
+    },
+    "counterfeit": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "контрафакт*"
+            }
+        ]
+    },
+    "disk": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "диск*"
+            }
+        ]
+    },
+    "program": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "програм*"
+            }
+        ]
+    },
+
+
+    "control": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "регулировани* интернет*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "регулировани* {0,1} сет*"
+            }
+        ]
+    },
+
+
+    "torrent": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "contains",
+                "operand":  "торрент"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "contains",
+                "operand":  "torrent"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "файлообмен*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "p2p"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "пирингов*"
+            }
+        ]
+    },
+
+
+    "block": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "блокировать"
+            },
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "блокиру[ею]т*"
+            },
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "заблокирова*"
+            }
+        ]
+    },
+    "block_exclude": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "горняк*"
+            },
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "шахт*"
+            },
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "оппозици*"
+            },
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "митинг*"
+            },
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "протест*"
+            },
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "демонстрант*"
+            },
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "украин*"
+            },
+            {
+                "key":      "title",
+                "operator": "pattern",
+                "operand":  "киев*"
+            },
+            {
+                "key":      "title",
+                "operator": "contains",
+                "operand":  "greenpeace"
+            }
+        ]
+    },
+
+
+    "cyber": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "управлени* К"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "contains",
+                "operand":  "cyber"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "кибер*"
+            }
+        ]
+    },
+
+
+    "censure": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "фильтраци*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "фильтровать"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "фильтру[ею]т*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "цензур*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "ч[её]рн* спис*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "запрещ[её]н* спис*"
+            }
+        ]
+    },
+    "censure_exclude": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "нецензурн*"
+            }
+        ]
+    },
+
+
+    "ISP": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "провайдер*"
+            }
+        ]
+    },
+
+
+    "patent": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "патент*"
+            }
+        ]
+    },
+    "patent_exclude": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "налог*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "индивидуальн* предпринимат*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "ИП"
+            }
+        ]
+    },
+
+
+    "consultant": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "консультант плюс"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "КонсультантПлюс"
+            }
+        ]
+    },
+
+
+    "competitors": {
+        "relation": "or",
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "contains",
+                "operand":  "право.ру"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "contains",
+                "operand":  "право.ru"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "contains",
+                "operand":  "pravo.ru"
+            }
+        ]
+    },
+
+
+    "mincomsvyaz": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "минкомсвяз*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "никифоров*"
+            }
+        ]
+    },
+    "mincomsvyaz_exclude": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "мобильн* рабств*"
+            }
+        ]
+    },
+
+
+    "anonymous": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "anonym*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "аноним*"
+            }
+        ]
+    },
+    "anonymous_exclude": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "анонимн* источник*"
+            },
+            {
+                "key":      ["title", "summary"],
+                "operator": "pattern",
+                "operand":  "бомб*"
+            }
+        ]
+    },
+
+
+    "ddos": {
+        "rules": [
+            {
+                "key":      ["title", "summary"],
+                "operator": "contains",
+                "operand":  "ddos"
+            }
+        ]
+    }
+}
